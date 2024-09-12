@@ -1,6 +1,14 @@
 const hiddenInput = document.getElementById('scannerInput');
 var currentString = '';
+
+const errorAudio = new Audio("/assets/sounds/error.mp3")
+errorAudio.volume = 1;
+
+const acceptedAudio = new Audio("/assets/sounds/accepted.mp3")
+acceptedAudio.volume = 1;
+
 function manualRefocus() {
+    console.log("Refocused Input")
     hiddenInput.focus();
 }
 
@@ -23,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let studentNames = {};
     let studentStatuses = {};
 
-    fetch('studentNames.json')
+    fetch('/databases/studentNames.json')
         .then(response => response.json())
         .then(data => {
             studentNames = data;
         });
 
-    fetch('studentStatus.json')
+    fetch('/databases/studentStatus.json')
         .then(response => response.json())
         .then(data => {
             studentStatuses = data;
@@ -67,9 +75,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 const repeatedCount = existingRow.cells[0].textContent;
                 updateFirestore(studentId, repeatedCount, studentName, studentStatus);
                 if (repeatedCount > 0) {
-                    alert("⚠️ Warning! This ID has already been scanned! ⚠️")
+                    errorAudio.play()
+                    setTimeout(() => {
+                        alert("⚠️ Warning! This ID has already been scanned! ⚠️")
+                    }, 100);
+                    
                 }
+            } else if (studentName == "Unknown") {
+                errorAudio.play()
+                setTimeout(() => {
+                    alert("⚠️ Warning! Could not find student associated with ID! ⚠️")
+                }, 100);
+                addRow(studentId, studentName, studentStatus);
+                saveToFirestore(studentId, studentName, studentStatus, 1); 
             } else {
+                acceptedAudio.play()
                 addRow(studentId, studentName, studentStatus);
                 saveToFirestore(studentId, studentName, studentStatus, 1); 
             }
