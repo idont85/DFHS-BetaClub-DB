@@ -1,10 +1,10 @@
 const hiddenInput = document.getElementById('scannerInput');
 var currentString = '';
 
-const errorAudio = new Audio("../assets/sounds/error.mp3")
+const errorAudio = new Audio("/assets/sounds/error.mp3")
 errorAudio.volume = 1;
 
-const acceptedAudio = new Audio("../assets/sounds/accepted.mp3")
+const acceptedAudio = new Audio("/assets/sounds/accepted.mp3")
 acceptedAudio.volume = 1;
 
 function manualRefocus() {
@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let studentNames = {};
     let studentStatuses = {};
 
-    fetch('../databases/studentNames.json')
+    fetch('/databases/studentNames.json')
         .then(response => response.json())
         .then(data => {
             studentNames = data;
         });
 
-    fetch('../databases/studentStatus.json')
+    fetch('/databases/studentStatus.json')
         .then(response => response.json())
         .then(data => {
             studentStatuses = data;
