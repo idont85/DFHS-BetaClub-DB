@@ -163,4 +163,9 @@ tr {
 #searchButton:hover {
   background-color: black;
 }
+
+#nameSearch {
+  background-color: #459063;
+  color: white;
+}
 /* Formatted using Precise */
