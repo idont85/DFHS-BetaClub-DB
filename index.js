@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableContainer = document.querySelector('.tableContainer');
     let studentNames = {};
     let studentStatuses = {};
-
+    
     fetch('/databases/studentNames.json')
         .then(response => response.json())
         .then(data => {
@@ -46,11 +46,18 @@ document.addEventListener('DOMContentLoaded', () => {
     hiddenInput.focus();
 
     document.addEventListener('keydown', (event) => {
-        currentString += event.key
-        if (event.key >= '0' && event.key <= '9') {
-            hiddenInput.focus();
+        const searchInput = document.getElementById('searchInput');
+    
+        // Check if 'searchInput' is not focused
+        if (document.activeElement !== searchInput) {
+            currentString += event.key;
+    
+            if (event.key >= '0' && event.key <= '9') {
+                hiddenInput.focus();
+            }
         }
     });
+    
 
     hiddenInput.addEventListener('input', function () {
         if (this.value.length === 5) {

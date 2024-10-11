@@ -10,6 +10,7 @@
         <link rel="icon" type="image/x-icon" href="/assets/images/dfhsLogo.png">
         <script src="/databases/studentNames.json"></script>
         <script src="index.js" defer></script>
+        <script src="search.js"></script>
     </head>
     <body>
         <!-- TopNav -->
@@ -34,6 +35,11 @@
                     </tr>
                 </table>
             </div>
+
+            <input id="searchInput" placeholder="Enter Search Query">
+            <button class="searchOptions" id="idSearch" value="id" onclick="changeSearchMethod(value, id)">ID #</button>
+            <button class="searchOptions" id="nameSearch" value="name" onclick="changeSearchMethod(value, id)">Name</button>
+            <button id="searchButton" onclick="searchTable()">Search</button>
 
 
             <div class="checkmarkContainer">
