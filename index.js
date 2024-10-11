@@ -47,8 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (event) => {
         const searchInput = document.getElementById('searchInput');
-    
-        // Check if 'searchInput' is not focused
         if (document.activeElement !== searchInput) {
             currentString += event.key;
     
