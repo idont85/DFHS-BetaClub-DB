@@ -1,60 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>DFHS Beta Club Database</title>
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
-        <script src="/databases/studentStatus.json"></script>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="icon" type="image/x-icon" href="/assets/images/dfhsLogo.png">
-        <script src="/databases/studentNames.json"></script>
-        <script src="index.js" defer></script>
-        <script src="search.js"></script>
-    </head>
-    <body>
-        <!-- TopNav -->
-        <ul class="navBar">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            
-            <t id="namePlate">DFHS Beta Club Database</t>
-            <!-- <img id="dfhsLogo" src="dfhsLogo.png" alt="dfhsLogo"> -->
-            
-        </ul>
-        <br>
-        <div class="mainContainer">
-            <div class="tableContainer">
-                <table class="mainLoggingTable">
-                    <tr>
-                        <td># Scanned</td>
-                        <td>Student ID#</td>
-                        <td>Student Name</td>
-                        <td>Fee Status</td>
-                        <td>Time Logged</td>
-                    </tr>
-                </table>
-            </div>
+  <head>
+    <title>DFHS Beta Club Database</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
+    <script src="/databases/studentStatus.json"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/assets/images/dfhsLogo.png" />
+    <script src="/databases/studentNames.json"></script>
+    <script src="index.js" defer></script>
+    <script src="search.js"></script>
+  </head>
+  <body>
+    <!-- TopNav -->
+    <ul class="navBar">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
 
-            <input id="searchInput" placeholder="Enter Search Query">
-            <button class="searchOptions" id="idSearch" value="id" onclick="changeSearchMethod(value, id)">ID #</button>
-            <button class="searchOptions" id="nameSearch" value="name" onclick="changeSearchMethod(value, id)">Name</button>
-            <button id="searchButton" onclick="searchTable()">Search</button>
+      <t id="namePlate">DFHS Beta Club Database</t>
+      <!-- <img id="dfhsLogo" src="dfhsLogo.png" alt="dfhsLogo"> -->
+    </ul>
+    <br />
+    <div class="mainContainer">
+      <div class="tableContainer">
+        <table class="mainLoggingTable">
+          <tr>
+            <td># Scanned</td>
+            <td>Student ID#</td>
+            <td>Student Name</td>
+            <td>Fee Status</td>
+            <td>Time Logged</td>
+          </tr>
+        </table>
+      </div>
 
+      <input id="searchInput" placeholder="Enter Search Query" />
+      <button
+        class="searchOptions"
+        id="idSearch"
+        value="id"
+        onclick="changeSearchMethod(value, id)"
+      >
+        ID #
+      </button>
+      <button
+        class="searchOptions"
+        id="nameSearch"
+        value="name"
+        onclick="changeSearchMethod(value, id)"
+      >
+        Name
+      </button>
+      <button id="searchButton" onclick="searchTable()">Search</button>
 
-            <div class="checkmarkContainer">
-                <!-- <img src="checkmark.png" alt="Checkmark" class="checkmark" /> -->
-                 <t class="checkmark" id="yes">✔️</t>
-                 <t class="checkmark" id="no">✖️</t>
-                 <t class="checkmark" id="neutral">➡️</t>
-            </div>
-        </div>
-        <button onclick="manualRefocus()" id="refocus">Refocus Input Bar</button>
-        <t class="footer">© Mustafa Azhar @ DFHS Beta Club</t>
+      <div class="checkmarkContainer">
+        <!-- <img src="checkmark.png" alt="Checkmark" class="checkmark" /> -->
+        <t class="checkmark" id="yes">✔️</t>
+        <t class="checkmark" id="no">✖️</t>
+        <t class="checkmark" id="neutral">➡️</t>
+      </div>
+    </div>
+    <button onclick="manualRefocus()" id="refocus">Refocus Bar</button>
+    <t class="footer">© Mustafa Azhar @ DFHS Beta Club</t>
 
-        <!-- Hidden input for scanner (untested) -->
-        <input type="number" id="scannerInput" style="opacity: 0; position: absolute;">
-    </body>
+    <!-- Hidden input for scanner (untested) -->
+    <input
+      type="number"
+      id="scannerInput"
+      style="opacity: 0; position: absolute"
+    />
+  </body>
 </html>
 
 <!-- Formatted using Precise -->
