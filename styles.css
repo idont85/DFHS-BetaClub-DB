@@ -36,6 +36,7 @@ li {
 }
 
 li a {
+  cursor: pointer;
   display: block;
   color: white;
   text-align: center;
@@ -99,6 +100,7 @@ tr {
   height: 5vh;
   border: none;
   transition-duration: 200ms;
+  cursor: pointer;
 }
 #refocus:hover {
   background-color: rgb(2, 95, 2);
@@ -141,6 +143,7 @@ tr {
   border-width: 1px;
   margin-left: 0.2vw;
   transition-duration: 400ms;
+  cursor: pointer;
 }
 
 .searchOptions:hover {
@@ -158,6 +161,7 @@ tr {
   position: absolute;
   right: 1vw;
   bottom: 6vw;
+  cursor: pointer;
 }
 
 #searchButton:hover {

@@ -10,6 +10,7 @@ acceptedAudio.volume = 1;
 function manualRefocus() {
   console.log("Refocused Input");
   hiddenInput.focus();
+  currentString = "";
 }
 
 document.addEventListener("DOMContentLoaded", () => {
